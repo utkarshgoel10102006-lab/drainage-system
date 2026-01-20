@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Delhi Water-Logging Hotspots</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Water Logging Hotspots</title>
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body>
+    <h2>Delhi Water-Logging Hotspots</h2>
+    <div id="map"></div>
 
-<h1>Delhi Water-Logging Hotspots</h1>
-<button onclick="loadHotspots()">Load Hotspots</button>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><h2>Delhi Water-Logging Hotspots</h2>
+    <div id="map"></div>
 
-<div id="output"></div>
-
-<script src="script.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
