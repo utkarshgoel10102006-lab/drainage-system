@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Water Logging Hotspots</title>
+    <meta charset="UTF-8">
+    <title>Delhi Water-Logging Hotspots</title>
 
     <!-- Leaflet CSS -->
     <link
@@ -10,24 +11,92 @@
     />
 
     <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #f4f6f8;
+        }
+
+        header {
+            background: #0b3c5d;
+            color: white;
+            padding: 15px 25px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+
+        .sidebar {
+            width: 320px;
+            background: #ffffff;
+            padding: 15px;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            color: #0b3c5d;
+        }
+
+        .hotspot {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid red;
+            background: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .hotspot.medium {
+            border-color: orange;
+        }
+
+        .hotspot.low {
+            border-color: green;
+        }
+
         #map {
-            height: 500px;
-            width: 100%;
+            flex: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 8px;
+            background: #eee;
+            font-size: 13px;
         }
     </style>
 </head>
 
 <body>
-    <h2>Delhi Water-Logging Hotspots</h2>
-    <div id="map"></div>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><h2>Delhi Water-Logging Hotspots</h2>
-    <div id="map"></div>
+<header>
+    <h1>Delhi Water-Logging Hotspot Mapping System</h1>
+</header>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js"></script>
+<div class="container">
+    <div class="sidebar">
+        <h3>Hotspot List</h3>
+        <div id="hotspotList">Loading hotspots...</div>
+    </div>
+
+    <div id="map"></div>
+</div>
+
+<footer>
+    Data-driven Monsoon Preparedness | Demo Project
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
-
