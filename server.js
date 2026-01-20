@@ -1,19 +1,24 @@
 const express = require("express");
 const cors = require("cors");
 
+const hotspotRoutes = require("./routes/hotspots");
+
 const app = express();
-app.use(cors());              // VERY IMPORTANT
-app.use(express.json());
 
-const hotspots = [
-  { id: 1, location: "Minto Bridge", severity: "High" },
-  { id: 2, location: "ITO Crossing", severity: "Medium" }
-];
+// Middleware
+app.use(cors());                 // Allow frontend on other devices
+app.use(express.json());         // Parse JSON body
 
-app.get("/api/hotspots", (req, res) => {
-  res.json(hotspots);
+// Routes
+app.use("/api/hotspots", hotspotRoutes);
+
+// Health check
+app.get("/", (req, res) => {
+    res.send("✅ Water-Logging Hotspot API is running");
 });
 
-app.listen(5000, "0.0.0.0", () => {
-  console.log("Backend running on port 5000");
+// Server
+const PORT = 5000;
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Backend running on port ${PORT}`);
 });
