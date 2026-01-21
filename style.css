@@ -1,28 +1,91 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    padding: 20px;
+    margin: 0;
+    background: #f1f4f8;
+    color: #333;
 }
 
-h1 {
-    color: #2c3e50;
-}
-
-button {
-    padding: 10px 15px;
-    background-color: #3498db;
+/* HEADER */
+header {
+    height: 60px;
+    background: #0b3c5d;
     color: white;
-    border: none;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
 }
 
-button:hover {
-    background-color: #2980b9;
+header .logo {
+    font-size: 20px;
+    font-weight: bold;
 }
 
-#output {
-    margin-top: 20px;
+header nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* MAIN LAYOUT */
+main {
+    display: flex;
+    height: calc(100vh - 100px);
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 350px;
     background: white;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    margin: 0;
+    color: #0b3c5d;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* HOTSPOT CARD */
+.hotspot {
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    background: #f9f9f9;
+    cursor: pointer;
+    border-left: 6px solid;
+}
+
+.hotspot.high { border-color: #d9534f; }
+.hotspot.medium { border-color: #f0ad4e; }
+.hotspot.low { border-color: #5cb85c; }
+
+/* MAP */
+.map-section {
+    flex: 1;
+}
+
+#map {
+    height: 100%;
+}
+
+/* FOOTER */
+footer {
+    height: 40px;
+    background: #eee;
+    text-align: center;
+    line-height: 40px;
+    font-size: 13px;
 }
