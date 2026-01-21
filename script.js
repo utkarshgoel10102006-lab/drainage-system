@@ -1,36 +1,27 @@
-// ---------------- CONFIG ----------------
-const API_URL = "http://<BACKEND-IP>:5000/api/hotspots";
+const API_URL = "http://localhost:5000/api/hotspots";
 
-// ---------------- MAP INIT ----------------
+// Initialize Map
 const map = L.map("map").setView([28.6139, 77.2090], 11);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "© OpenStreetMap contributors"
+    attribution: "© OpenStreetMap"
 }).addTo(map);
 
-// ---------------- ICON COLORS ----------------
-function getColor(severity) {
-    if (severity === "High") return "red";
-    if (severity === "Medium") return "orange";
-    return "green";
-}
-
-// ---------------- LOAD HOTSPOTS ----------------
+// Fetch Hotspots
 fetch(API_URL)
     .then(res => res.json())
-    .then(result => {
-        const hotspots = result.data;
-        displayHotspots(hotspots);
-        plotHotspotsOnMap(hotspots);
+    .then(data => {
+        renderHotspots(data.data);
+        plotOnMap(data.data);
     })
     .catch(err => {
         document.getElementById("hotspotList").innerText =
-            "Failed to load hotspot data";
+            "Error loading data";
         console.error(err);
     });
 
-// ---------------- DISPLAY IN SIDEBAR ----------------
-function displayHotspots(hotspots) {
+// Sidebar Rendering
+function renderHotspots(hotspots) {
     const list = document.getElementById("hotspotList");
     list.innerHTML = "";
 
@@ -38,32 +29,38 @@ function displayHotspots(hotspots) {
         const div = document.createElement("div");
         div.className = `hotspot ${h.severity.toLowerCase()}`;
         div.innerHTML = `
-            <strong>${h.name}</strong><br>
+            <strong>${h.location}</strong><br>
             Ward: ${h.ward}<br>
             Severity: ${h.severity}
         `;
 
         div.onclick = () => {
-            map.setView([h.latitude, h.longitude], 15);
+            map.setView([h.lat, h.lng], 15);
         };
 
         list.appendChild(div);
     });
 }
 
-// ---------------- PLOT ON MAP ----------------
-function plotHotspotsOnMap(hotspots) {
+// Map Plotting
+function plotOnMap(hotspots) {
     hotspots.forEach(h => {
-        L.circleMarker([h.latitude, h.longitude], {
+        L.circleMarker([h.lat, h.lng], {
             radius: 8,
             color: getColor(h.severity),
             fillOpacity: 0.8
         })
         .addTo(map)
         .bindPopup(`
-            <b>${h.name}</b><br>
+            <b>${h.location}</b><br>
             Ward: ${h.ward}<br>
             Severity: ${h.severity}
         `);
     });
+}
+
+function getColor(sev) {
+    if (sev === "High") return "red";
+    if (sev === "Medium") return "orange";
+    return "green";
 }
