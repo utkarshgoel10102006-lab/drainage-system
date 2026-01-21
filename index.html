@@ -2,101 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Delhi Water-Logging Hotspots</title>
+    <title>Delhi Water-Logging Monitoring System</title>
 
-    <!-- Leaflet CSS -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
-
-    <style>
-        body {
-            margin: 0;
-            font-family: "Segoe UI", sans-serif;
-            background: #f4f6f8;
-        }
-
-        header {
-            background: #0b3c5d;
-            color: white;
-            padding: 15px 25px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 22px;
-        }
-
-        .container {
-            display: flex;
-            height: calc(100vh - 60px);
-        }
-
-        .sidebar {
-            width: 320px;
-            background: #ffffff;
-            padding: 15px;
-            overflow-y: auto;
-            border-right: 1px solid #ddd;
-        }
-
-        .sidebar h3 {
-            margin-top: 0;
-            color: #0b3c5d;
-        }
-
-        .hotspot {
-            padding: 10px;
-            margin-bottom: 10px;
-            border-left: 5px solid red;
-            background: #f9f9f9;
-            cursor: pointer;
-        }
-
-        .hotspot.medium {
-            border-color: orange;
-        }
-
-        .hotspot.low {
-            border-color: green;
-        }
-
-        #map {
-            flex: 1;
-        }
-
-        footer {
-            text-align: center;
-            padding: 8px;
-            background: #eee;
-            font-size: 13px;
-        }
-    </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Delhi Water-Logging Hotspot Mapping System</h1>
+    <div class="logo">🌧️ Smart Delhi</div>
+    <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Hotspots</a>
+        <a href="#">Preparedness</a>
+        <a href="#">Reports</a>
+    </nav>
 </header>
 
-<div class="container">
-    <div class="sidebar">
-        <h3>Hotspot List</h3>
-        <div id="hotspotList">Loading hotspots...</div>
-    </div>
+<main>
+    <aside class="sidebar">
+        <h2>Water-Logging Hotspots</h2>
+        <p class="subtitle">Severity-based monitoring</p>
+        <div id="hotspotList">Loading data...</div>
+    </aside>
 
-    <div id="map"></div>
-</div>
+    <section class="map-section">
+        <div id="map"></div>
+    </section>
+</main>
 
 <footer>
-    Data-driven Monsoon Preparedness | Demo Project
+    © 2026 Delhi Urban Flood Monitoring | Data-Driven Governance
 </footer>
 
-<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
