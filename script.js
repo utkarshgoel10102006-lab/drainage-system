@@ -115,3 +115,8 @@ function searchArea() {
             });
     }
 }
+const map = L.map("map").setView([28.6139, 77.2090], 11);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "© OpenStreetMap"
+}).addTo(map);
