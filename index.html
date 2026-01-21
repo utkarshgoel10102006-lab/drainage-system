@@ -2,52 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Delhi Water-Logging Monitoring System</title>
+    <title>Delhi Water-Logging Monitoring</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Leaflet -->
+    <!-- Leaflet CSS MUST be here -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
-</head>
 
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <header>
-    <div class="logo">🌧️ Smart Delhi</div>
-    <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">Hotspots</a>
-        <a href="#">Preparedness</a>
-        <a href="#">Reports</a>
-    </nav>
+    <h2>🌧️ Delhi Water-Logging Dashboard</h2>
 </header>
 
-<main>
-    <aside class="sidebar">
-        <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Enter your area (e.g. Dwarka)">
-    <button onclick="searchArea()">Search</button>
+<div class="container">
+    <div class="sidebar">
+        <input type="text" id="searchInput" placeholder="Enter your area">
+        <button onclick="searchArea()">Search</button>
+        <div id="hotspotList"></div>
+    </div>
+
+    <div id="map"></div>
 </div>
 
-        <h2>Water-Logging Hotspots</h2>
-        <p class="subtitle">Severity-based monitoring</p>
-        <div id="hotspotList">Loading data...</div>
-    </aside>
-
-    <section class="map-section">
-        <div id="map"></div>
-    </section>
-</main>
-
-<footer>
-    © 2026 Delhi Urban Flood Monitoring | Data-Driven Governance
-</footer>
-
+<!-- Leaflet JS MUST be before script.js -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
