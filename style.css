@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: linear-gradient(90deg, #0052cc, #1e90ff);
+    color: white;
+    text-align: center;
+    padding: 12px;
+}
+
+#weather {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#map {
+    height: calc(100vh - 100px);
+    width: 100%;
+}
+
+.legend {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.legend span {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 6px;
+    border-radius: 50%;
+}
+
+.high { background: red; }
+.medium { background: orange; }
+.low { background: green; }

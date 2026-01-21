@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delhi Water-Logging & Live Weather</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Delhi Water-Logging Hotspots</h1>
+    <p id="weather">Fetching live weather...</p>
+</header>
+
+<div id="map"></div>
+
+<div class="legend">
+    <h4>Ward Risk</h4>
+    <div><span class="high"></span> High</div>
+    <div><span class="medium"></span> Medium</div>
+    <div><span class="low"></span> Low</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
