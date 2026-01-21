@@ -1,3 +1,5 @@
+let hotspotData = [];
+
 alert("Site can be harmful")
 const API_URL = "http://localhost:5000/api/hotspots";
 
