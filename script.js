@@ -13,10 +13,12 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // Fetch Hotspots
 fetch(API_URL)
     .then(res => res.json())
-    .then(data => {
-        renderHotspots(data.data);
-        plotOnMap(data.data);
-    })
+.then(data => {
+    hotspotData = data.data;
+    renderHotspots(hotspotData);
+    plotOnMap(hotspotData);
+});
+
     .catch(err => {
         document.getElementById("hotspotList").innerText =
             "Error loading data";
