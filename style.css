@@ -1,117 +1,27 @@
-* {
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
-}
-
 body {
     margin: 0;
-    background: #f1f4f8;
-    color: #333;
+    font-family: Arial, sans-serif;
 }
 
-/* HEADER */
 header {
-    height: 60px;
     background: #0b3c5d;
     color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 25px;
+    height: calc(100vh - 60px);
 }
 
-header .logo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-header nav a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/* MAIN LAYOUT */
-main {
-    display: flex;
-    height: calc(100vh - 100px);
-}
-
-/* SIDEBAR */
 .sidebar {
-    width: 350px;
-    background: white;
-    padding: 20px;
-    border-right: 1px solid #ddd;
-    overflow-y: auto;
-}
-
-.sidebar h2 {
-    margin: 0;
-    color: #0b3c5d;
-}
-
-.subtitle {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 15px;
-}
-
-/* HOTSPOT CARD */
-.hotspot {
-    padding: 12px;
-    margin-bottom: 12px;
-    border-radius: 6px;
-    background: #f9f9f9;
-    cursor: pointer;
-    border-left: 6px solid;
-}
-
-.hotspot.high { border-color: #d9534f; }
-.hotspot.medium { border-color: #f0ad4e; }
-.hotspot.low { border-color: #5cb85c; }
-
-/* MAP */
-.map-section {
-    flex: 1;
+    width: 300px;
+    padding: 10px;
+    background: #f4f4f4;
 }
 
 #map {
-    height: 100%;
-}
-
-/* FOOTER */
-footer {
-    height: 40px;
-    background: #eee;
-    text-align: center;
-    line-height: 40px;
-    font-size: 13px;
-}
-.search-box {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
-}
-
-.search-box input {
     flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    height: 100%;   /* 🔥 REQUIRED */
 }
-
-.search-box button {
-    padding: 8px 12px;
-    background: #0b3c5d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.search-box button:hover {
-    background: #094060;
-}
-
