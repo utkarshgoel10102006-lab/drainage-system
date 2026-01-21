@@ -69,3 +69,49 @@ function getColor(sev) {
     if (sev === "Medium") return "orange";
     return "green";
 }
+function searchArea() {
+    const input = document.getElementById("searchInput").value.trim().toLowerCase();
+
+    if (!input) {
+        alert("Please enter an area name");
+        return;
+    }
+
+    // Check if area exists in hotspot data
+    const found = hotspotData.find(h =>
+        h.location.toLowerCase().includes(input)
+    );
+
+    if (found) {
+        map.setView([found.lat, found.lng], 15);
+
+        L.popup()
+            .setLatLng([found.lat, found.lng])
+            .setContent(`
+                <b>${found.location}</b><br>
+                Ward: ${found.ward}<br>
+                Severity: ${found.severity}
+            `)
+            .openOn(map);
+    } else {
+        // If not in hotspots → use OpenStreetMap search
+        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${input} delhi`)
+            .then(res => res.json())
+            .then(results => {
+                if (results.length === 0) {
+                    alert("Area not found in Delhi");
+                    return;
+                }
+
+                const lat = results[0].lat;
+                const lon = results[0].lon;
+
+                map.setView([lat, lon], 14);
+
+                L.marker([lat, lon])
+                    .addTo(map)
+                    .bindPopup(`<b>${input}</b><br>No hotspot data available`)
+                    .openPopup();
+            });
+    }
+}
